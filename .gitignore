@@ -1,0 +1,30 @@
+# Dataset
+data_prep/raw/
+data_prep/processed/
+
+# Modelos entrenados
+models/*.pt
+models/*.h5
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.venv/
+venv/
+*.egg-info/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Kaggle
+kaggle.json
+.kaggle/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
