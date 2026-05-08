@@ -5,7 +5,30 @@ Programa: Servicio Becario | ITC | 4to semestre
 
 ## Dataset
 
-<!-- TODO: describir el dataset elegido, número de clases, fuente -->
+**Chest X-Ray Images (Pneumonia)** — [Kaggle](https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia)  
+Clasificación binaria de radiografías de tórax: `NORMAL` vs `PNEUMONIA`  
+~5,856 imágenes | Train: ~5,216 | Val: 16 | Test: 624
+
+### Descarga
+
+1. Ve a https://www.kaggle.com/datasets/paultimothymooney/chest-xray-pneumonia
+2. Haz clic en **Download**
+3. Descomprime el archivo en `data_prep/raw/`
+
+La estructura resultante debe ser:
+
+```
+data_prep/raw/
+├── test/
+│   ├── NORMAL/
+│   └── PNEUMONIA/
+├── train/
+│   ├── NORMAL/
+│   └── PNEUMONIA/
+└── val/
+    ├── NORMAL/
+    └── PNEUMONIA/
+```
 
 ## Estructura del proyecto
 
