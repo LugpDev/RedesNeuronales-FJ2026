@@ -29,3 +29,11 @@
 **Decisión tomada:** Se aceptó el borrador como base. Se eliminaron las secciones 4 (stack tecnológico) y 5 (plan de trabajo) por decisión propia. Se redactó la motivación personal en la Sección 1 y la justificación del dataset en la Sección 3. El archivo se guardó como `DEFINICION.md` en el repositorio.
 
 **Reflexión crítica:** El borrador fue útil como punto de partida ya que el contenido factual (estadísticas, ventajas, limitaciones) ya estaba estructurado, lo que me permitió enfocarme en los apartados que requieren criterio propio, como la motivación y la justificación del dataset. La sugerencia de incluir secciones de stack y plan de trabajo era válida, pero opté por omitirlas al considerarlas redundantes con la información ya documentada en otros archivos del proyecto.
+
+## Entrada 4 — 2026-05-12
+
+**Prompt:** ¿Qué estrategias de balanceo existen, y cuáles me serían útiles para este proyecto? / Redacta esta información en un documento markdown
+
+**Respuesta resumida:** Claude explicó 5 estrategias de balanceo aplicables al desbalance 73% PNEUMONIA / 27% NORMAL del dataset: (1) pesos de clase en la función de pérdida (`BCEWithLogitsLoss` con `pos_weight`), (2) oversampling con `WeightedRandomSampler`, (3) data augmentation diferencial sobre la clase minoritaria, (4) ajuste del umbral de decisión post-entrenamiento vía curva ROC, y (5) undersampling (descartada por pérdida de datos injustificada). Recomendó combinar `class_weight` + `WeightedRandomSampler` como base de entrenamiento y ajustar el umbral al evaluar. Posteriormente generó el documento `data_prep/BALANCEO_CLASES.md` con código de ejemplo, tabla comparativa y sección de métricas prioritarias.
+
+**Decisión tomada:** Acepté el documento sin cambios ya que únicamente es un documento de investigación y no requería un análisis crítico
