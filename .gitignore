@@ -1,6 +1,7 @@
 # Dataset
 data_prep/raw/
 data_prep/processed/
+data_prep/splits.json
 
 # Modelos entrenados
 models/*.pt
