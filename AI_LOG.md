@@ -47,3 +47,13 @@
 **Decisión tomada:** Revisé el código generado para verificar que cumpliera con lo esperado. Acepté los archivos `data_prep/transforms.py` y `requirements.txt` sin modificaciones. En `data_prep/preprocess.py` realicé un ajuste, ya que el script original de Claude omitía las imágenes del directorio `val/` original de Kaggle al redistribuir los splits, por lo que modifiqué la lógica para incorporarlas al nuevo conjunto de validación antes de aplicar la redistribución desde `train/`.
 
 **Reflexión crítica:** La sugerencia fue sólida en cuanto a las decisiones de diseño previas al código: elegir 224×224 pensando en compatibilidad con transfer learning evita refactorizaciones futuras. Sin embargo, el script presentó un error al ignorar el directorio `val/` original de Kaggle, lo que hubiera resultado en datos descartados sin justificación. La corrección fue sencilla una vez identificado el problema, pero evidencia la importancia de validar el código generado contra la estructura real del dataset antes de aceptarlo.
+
+## Entrada 6 — 2026-05-13
+
+**Prompt:** Propón 2 arquitecturas CNN baseline para clasificación de pneumonia. Explica las diferencias y qué esperar de cada una en términos de accuracy y tiempo de entrenamiento.
+
+**Respuesta resumida:** Claude propuso dos arquitecturas para el entregable de Semana 3: (A) CNN pequeña de 3 bloques Conv simples (~6–8 M parámetros, ~78–84% acc esperado), útil para verificar el pipeline rápidamente; (B) CNN moderada estilo VGG con bloques dobles de convoluciones + BatchNorm + GlobalAveragePooling (~1.5–2 M parámetros, ~85–90% acc esperado), adecuada para el reporte formal. Recomendó una estrategia en dos pasos: primero Arq. A para validar el flujo, luego Arq. B para el entrenamiento formal. Generó el documento `training/CNN_BASELINE_ARQUITECTURAS.md` con tablas comparativas y señales de alerta durante el entrenamiento.
+
+**Decisión tomada:** Implementé directamente la Arquitectura B, saltándome el paso intermedio de validar el pipeline con la Arquitectura A. Esto porque ya había verificado previamente un pipeline equivalente al revisar un ejemplo en YouTube con una arquitectura similar a la A, por lo que repetir esa validación me pareció redundante.
+
+**Reflexión crítica:** Haber encontrado previamente un ejemplo similar a la Arquitectura A en YouTube me ahorró tiempo de desarrollo y validación, lo que me permitió enfocar el esfuerzo directamente en construir la Arquitectura B, que era la que realmente importaba para obtener un buen resultado en el reporte formal. Tras investigar un poco más sobre el diseño propuesto, confirmé que la sugerencia de Claude era sólida, por lo que la implementé sin modificaciones.
