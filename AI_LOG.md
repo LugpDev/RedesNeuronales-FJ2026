@@ -57,3 +57,11 @@
 **Decisión tomada:** Implementé directamente la Arquitectura B, saltándome el paso intermedio de validar el pipeline con la Arquitectura A. Esto porque ya había verificado previamente un pipeline equivalente al revisar un ejemplo en YouTube con una arquitectura similar a la A, por lo que repetir esa validación me pareció redundante.
 
 **Reflexión crítica:** Haber encontrado previamente un ejemplo similar a la Arquitectura A en YouTube me ahorró tiempo de desarrollo y validación, lo que me permitió enfocar el esfuerzo directamente en construir la Arquitectura B, que era la que realmente importaba para obtener un buen resultado en el reporte formal. Tras investigar un poco más sobre el diseño propuesto, confirmé que la sugerencia de Claude era sólida, por lo que la implementé sin modificaciones.
+
+## Entrada 7 — 2026-06-17
+
+**Prompt:** ¿Cómo funciona una matriz de confusión? / Explícame mi matriz de confusión / ¿Qué es una curva ROC? / ¿Qué se interpreta de las curvas de entrenamiento?
+
+**Respuesta resumida:** Claude explicó los cuatro conceptos de evaluación de modelos aplicados al proyecto de neumonía: (1) Estructura de la matriz de confusión (TP, TN, FP, FN) y métricas derivadas; (2) Análisis de la matriz real del modelo: 7 FN, 92 FP, 84.1% accuracy, 98.2% recall en PNEUMONIA — modelo sesgado hacia predecir neumonía por desbalance de clases; (3) Curva ROC: traza TPR vs FPR a todos los umbrales posibles, el AUC mide la separabilidad global entre clases; (4) Curvas de entrenamiento: permiten detectar overfitting (val loss sube mientras train loss baja), underfitting (ambas estancadas) e inestabilidad (oscilaciones por learning rate alto).
+
+**Reflexión crítica:** Las explicaciones de Claude fueron claras y, al tener contexto del proyecto, pudo aterrizar los conceptos directamente sobre mis resultados (p. ej., interpretar los 92 FP y el sesgo hacia PNEUMONIA en mi propia matriz de confusión), lo cual facilitó mucho la comprensión frente a una explicación genérica de manual.
